@@ -1,4 +1,4 @@
-﻿
+﻿	
 // G26W03MFCView.h: CG26W03MFCView 클래스의 인터페이스
 //
 
@@ -40,6 +40,8 @@ protected:
 // 생성된 메시지 맵 함수
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // G26W03MFCView.cpp의 디버그 버전
