@@ -60,9 +60,11 @@ void CG26W03MFCView::OnDraw(CDC* pDC)
 		return;
 	
 	// TODO: 여기에 원시 데이터에 대한 그리기 코드를 추가합니다.
-	CPoint P = pDoc->GetPoint();
-
-	pDC->Ellipse(P.x - 30, P.y - 30, P.x + 30, P.y + 30);
+	for (int i = 0; i < pDoc->GetPointsCount(); i++) 
+	{
+		CPoint P = pDoc->GetPoint(i);
+		pDC->Ellipse(P.x - 30, P.y - 30, P.x + 30, P.y + 30);
+	}
 }
 
 
@@ -114,7 +116,10 @@ void CG26W03MFCView::OnLButtonDown(UINT nFlags, CPoint point)
 	//CClientDC dc(this);
 	//dc.Ellipse(point.x - 30, point.y - 30, point.x + 30, point.y + 30);
 
-	GetDocument()->SetPoint(point);
+	//GetDocument()->SetPoint(point);
+	//Invalidate();
+
+	GetDocument()->AddPoint(point);
 	Invalidate();
 
 	CView::OnLButtonDown(nFlags, point);
