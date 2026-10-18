@@ -14,10 +14,19 @@ protected:
 
 public:
 	int GetPointsCount() { return (int)Points.GetCount(); }
+
 	CPoint GetPoint(int index) { return Points[index]; }
+	
 	void AddPoint(CPoint p) {
 		Points.Add(p);
 		SetModifiedFlag();
+	}
+
+	void RemoveLast() {
+		if (Points.GetCount() > 0) {
+			Points.RemoveAt(Points.GetCount() - 1);
+			SetModifiedFlag();
+		}
 	}
 
 protected: // serialization에서만 만들어집니다.
